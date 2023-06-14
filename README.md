@@ -21,3 +21,41 @@ install LM library
 pip install pyctcdecode
 pip install https://github.com/kpu/kenlm/archive/master.zip
 ```
+## Clone speech repository
+```
+git clone https://github.com/Reservoirs/speech.git
+cd speech/Nemo
+```
+## Usage
+For only Transcription
+```
+from nemo_service import NemoService
+myservice = NemoService(path='sample.wav',language='DE')
+result = myservice.run()
+
+print(result.keys()) #{fulltext,time_stamps,confidence}
+print(result['fulltext'])
+```
+
+For diarization
+```
+from nemo_service import NemoService
+myservice = NemoService(path='sample.wav',language='DE',diarization=True,number_speaker=3,export_srt=True)
+result = myservice.run()
+
+print(result.keys()) #{fulltext,time_stamps,confidence,diarize}
+print(result['diarize'])
+```
+For identification
+```
+from nemo_service import NemoService
+
+myservice = NemoService(path='sample.wav',language='DE',diarization=True,\\
+identification=True,number_speaker=4,\\
+members=['@DAVID','@JACK','@TOM'],register='register.obj,export_srt=True)
+
+result = myservice.run()
+
+print(result.keys())
+print(result['diarize'])
+```
