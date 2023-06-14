@@ -63,6 +63,6 @@ How create register.obj
 ```
 speakers={'@DAVID':'DAVID.wav','@JACK':'JACK.wav','@TOM':'TOM.wav'}
 import pickle
-with open('/content/register.obj', 'wb') as fp:
+with open('register.obj', 'wb') as fp:
   pickle.dump(speakers, fp)
 ```
