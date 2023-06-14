@@ -25,6 +25,7 @@ pip install https://github.com/kpu/kenlm/archive/master.zip
 ```
 git clone https://github.com/Reservoirs/speech.git
 cd speech/Nemo
+#Add .nemo model to this directory
 ```
 ## Usage
 For only Transcription
